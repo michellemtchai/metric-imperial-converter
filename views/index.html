@@ -84,7 +84,7 @@
     <hr style="margin: 50px" />
     <div id="testui" style="margin-left: 5%">
       <h2 style="text-align: left">Front-End:</h2>
-      <form id="convertForm" class="border" onsubmit="return false;">
+      <form id="convertForm" class="border">
         <input
           type="text"
           id="convertField"
@@ -107,7 +107,6 @@
     <script>
       $(function () {
         $('#convertForm').submit(function (event) {
-          event.preventDefault();
           $.ajax({
             url: '/api/convert',
             type: 'get',
@@ -117,7 +116,8 @@
               $('#jsonResult').text(JSON.stringify(data));
             },
           });
-        });
+          event.preventDefault();
+       });
       });
     </script>
   </body>
