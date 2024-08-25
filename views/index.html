@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to HyperDev!</title>
+    <title>Metric Imperial Converter</title>
     <meta name="description" content="A cool thing made with HyperDev" />
     <link
       id="favicon"
@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./public/style.css" />
+    <link rel="manifest" href="./public/manifest.json" />
   </head>
   <body>
     <header>
@@ -100,17 +101,15 @@
     <hr style="margin: 50px; margin-top: 200px" />
     <!-- Your web-app is https, so your scripts need to be too -->
     <script
+      type="text/javascript"
       src="https://code.jquery.com/jquery-2.2.1.min.js"
       integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
       crossorigin="anonymous"
     ></script>
-    <script>
+    <script type="text/javascript">
       $(function () {
-        $('#convert').click(function (event) {
-          event.preventDefault();
-          return false;
-        });
         $('#convertForm').submit(function (event) {
+          event.preventDefault();
           $.ajax({
             url: '/api/convert',
             type: 'get',
@@ -120,8 +119,6 @@
               $('#jsonResult').text(JSON.stringify(data));
             },
           });
-          event.preventDefault();
-          return false;
         });
       });
     </script>
