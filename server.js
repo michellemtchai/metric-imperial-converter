@@ -24,7 +24,6 @@ app.use(
           'code.jquery.com',
         ],
         styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'hyperdev.com'],
       },
     },
   }),
